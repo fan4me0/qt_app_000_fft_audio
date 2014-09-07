@@ -80,4 +80,5 @@ HEADERS +=      \
 OTHER_FILES += \
     LICENSE.md \
     README.md \
-    .gitignore
+    .gitignore \
+    qt_app_000_fft_audio.pro.win
