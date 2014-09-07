@@ -1,0 +1,181 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2013-04-06T06:47:59
+#
+#-------------------------------------------------
+
+# This makefile is old version when started Qt project on Win
+# Kept for later use and possible merge into 'qt_app_000_fft_audio.pro'
+
+QT          += core gui
+TARGET      = qt_spectra
+TEMPLATE    = app
+
+
+#------------------------------------------------------------
+# Qwt library settings
+INCLUDEPATH += n:\\Qt\\4.7.4\\include\\Qwt
+
+CONFIG(debug, debug|release) {
+    LIBS += n:\\Qt\\4.7.4\\lib\\qwtd.lib
+    QMAKE_CXXFLAGS += /Fadebug\ /FAcs       # /Fa - file output folder ; /FAcs - Source,Machine and assembly code
+}
+
+CONFIG(release, debug|release) {
+    LIBS += n:\\Qt\\4.7.4\\lib\\qwt.lib
+    QMAKE_CXXFLAGS += /Farelease\ /FAcs     # /Fa - file output folder ; /FAcs - Source,Machine and assembly code
+}
+
+
+#------------------------------------------------------------
+# FFTW library settings
+DEFINES     += FFTW_DLL
+LIBS        += n:\\Qt\\4.7.4\\lib\\libfftw3-3.lib
+INCLUDEPATH += n:\\Qt\\4.7.4\\include\\Fftw
+
+
+#------------------------------------------------------------
+# STK library settings
+DEFINES     += __WINDOWS_DS__
+DEFINES     += __WINDOWS_ASIO__
+INCLUDEPATH += n:\\libs\\cpp\\stk\\include
+INCLUDEPATH += n:\\libs\\cpp\\stk\\src\\include
+
+LIBS += dsound.lib  \
+        user32.lib  \
+        advapi32.lib    \
+        ole32.lib
+
+#------------------------------------------------------------
+#QMAKE_CXXFLAGS += -P   # keep temporary files e.g. preprocessor output .i
+QMAKE_LFLAGS += /MAP:mapfile.map        # linker map file
+DEFINES     -= UNICODE
+DEFINES     += _CRT_SECURE_NO_WARNINGS  # disable compiler warning: C4996: 'strcpy': This function or variable may be unsafe
+
+SOURCES +=      \
+    main.cpp    \
+    mainWin.cpp \
+    sliders.cpp \
+    datafft.cpp \
+    N:/libs/cpp/stk/src/include/asio.cpp \
+    N:/libs/cpp/stk/src/include/asiolist.cpp \
+    N:/libs/cpp/stk/src/include/asiodrivers.cpp \
+    N:/libs/cpp/stk/src/RtAudio.cpp \
+    audiosource.cpp
+
+FORMS    += \
+    form.ui
+
+HEADERS +=      \
+    mainWin.h \
+    sliders.h \
+    datafft.h \
+    N:/libs/cpp/stk/src/include/iasiothiscallresolver.h \
+    N:/libs/cpp/stk/include/WvOut.h \
+    N:/libs/cpp/stk/include/WvIn.h \
+    N:/libs/cpp/stk/include/Wurley.h \
+    N:/libs/cpp/stk/include/Whistle.h \
+    N:/libs/cpp/stk/include/VoicForm.h \
+    N:/libs/cpp/stk/include/Voicer.h \
+    N:/libs/cpp/stk/include/Vector3D.h \
+    N:/libs/cpp/stk/include/UdpSocket.h \
+    N:/libs/cpp/stk/include/TwoZero.h \
+    N:/libs/cpp/stk/include/TwoPole.h \
+    N:/libs/cpp/stk/include/Twang.h \
+    N:/libs/cpp/stk/include/TubeBell.h \
+    N:/libs/cpp/stk/include/Thread.h \
+    N:/libs/cpp/stk/include/TcpServer.h \
+    N:/libs/cpp/stk/include/TcpClient.h \
+    N:/libs/cpp/stk/include/TapDelay.h \
+    N:/libs/cpp/stk/include/Stk.h \
+    N:/libs/cpp/stk/include/StifKarp.h \
+    N:/libs/cpp/stk/include/Sphere.h \
+    N:/libs/cpp/stk/include/Socket.h \
+    N:/libs/cpp/stk/include/SKINI.tbl \
+    N:/libs/cpp/stk/include/Skini.h \
+    N:/libs/cpp/stk/include/Sitar.h \
+    N:/libs/cpp/stk/include/SingWave.h \
+    N:/libs/cpp/stk/include/SineWave.h \
+    N:/libs/cpp/stk/include/Simple.h \
+    N:/libs/cpp/stk/include/Shakers.h \
+    N:/libs/cpp/stk/include/Saxofony.h \
+    N:/libs/cpp/stk/include/Sampler.h \
+    N:/libs/cpp/stk/include/RtWvOut.h \
+    N:/libs/cpp/stk/include/RtWvIn.h \
+    N:/libs/cpp/stk/include/RtMidi.h \
+    N:/libs/cpp/stk/include/RtError.h \
+    N:/libs/cpp/stk/include/RtAudio.h \
+    N:/libs/cpp/stk/include/Rhodey.h \
+    N:/libs/cpp/stk/include/Resonate.h \
+    N:/libs/cpp/stk/include/ReedTable.h \
+    N:/libs/cpp/stk/include/PRCRev.h \
+    N:/libs/cpp/stk/include/PoleZero.h \
+    N:/libs/cpp/stk/include/Plucked.h \
+    N:/libs/cpp/stk/include/PitShift.h \
+    N:/libs/cpp/stk/include/Phonemes.h \
+    N:/libs/cpp/stk/include/PercFlut.h \
+    N:/libs/cpp/stk/include/OneZero.h \
+    N:/libs/cpp/stk/include/OnePole.h \
+    N:/libs/cpp/stk/include/NRev.h \
+    N:/libs/cpp/stk/include/Noise.h \
+    N:/libs/cpp/stk/include/Mutex.h \
+    N:/libs/cpp/stk/include/Moog.h \
+    N:/libs/cpp/stk/include/Modulate.h \
+    N:/libs/cpp/stk/include/ModalBar.h \
+    N:/libs/cpp/stk/include/Modal.h \
+    N:/libs/cpp/stk/include/MidiFileIn.h \
+    N:/libs/cpp/stk/include/Messager.h \
+    N:/libs/cpp/stk/include/Mesh2D.h \
+    N:/libs/cpp/stk/include/Mandolin.h \
+    N:/libs/cpp/stk/include/LentPitShift.h \
+    N:/libs/cpp/stk/include/JetTable.h \
+    N:/libs/cpp/stk/include/JCRev.h \
+    N:/libs/cpp/stk/include/Instrmnt.h \
+    N:/libs/cpp/stk/include/InetWvOut.h \
+    N:/libs/cpp/stk/include/InetWvIn.h \
+    N:/libs/cpp/stk/include/Iir.h \
+    N:/libs/cpp/stk/include/Chorus.h \
+    N:/libs/cpp/stk/include/HevyMetl.h \
+    N:/libs/cpp/stk/include/Guitar.h \
+    N:/libs/cpp/stk/include/Granulate.h \
+    N:/libs/cpp/stk/include/Generator.h \
+    N:/libs/cpp/stk/include/Function.h \
+    N:/libs/cpp/stk/include/FreeVerb.h \
+    N:/libs/cpp/stk/include/FormSwep.h \
+    N:/libs/cpp/stk/include/FMVoices.h \
+    N:/libs/cpp/stk/include/FM.h \
+    N:/libs/cpp/stk/include/Flute.h \
+    N:/libs/cpp/stk/include/Fir.h \
+    N:/libs/cpp/stk/include/Filter.h \
+    N:/libs/cpp/stk/include/FileWvOut.h \
+    N:/libs/cpp/stk/include/FileWvIn.h \
+    N:/libs/cpp/stk/include/FileWrite.h \
+    N:/libs/cpp/stk/include/FileRead.h \
+    N:/libs/cpp/stk/include/FileLoop.h \
+    N:/libs/cpp/stk/include/Envelope.h \
+    N:/libs/cpp/stk/include/Echo.h \
+    N:/libs/cpp/stk/include/Effect.h \
+    N:/libs/cpp/stk/include/Drummer.h \
+    N:/libs/cpp/stk/include/DelayL.h \
+    N:/libs/cpp/stk/include/DelayA.h \
+    N:/libs/cpp/stk/include/Delay.h \
+    N:/libs/cpp/stk/include/Cubic.h \
+    N:/libs/cpp/stk/include/Clarinet.h \
+    N:/libs/cpp/stk/include/Brass.h \
+    N:/libs/cpp/stk/include/BowTable.h \
+    N:/libs/cpp/stk/include/Bowed.h \
+    N:/libs/cpp/stk/include/BlowHole.h \
+    N:/libs/cpp/stk/include/BlowBotl.h \
+    N:/libs/cpp/stk/include/BlitSquare.h \
+    N:/libs/cpp/stk/include/BlitSaw.h \
+    N:/libs/cpp/stk/include/Blit.h \
+    N:/libs/cpp/stk/include/BiQuad.h \
+    N:/libs/cpp/stk/include/BeeThree.h \
+    N:/libs/cpp/stk/include/BandedWG.h \
+    N:/libs/cpp/stk/include/Asymp.h \
+    N:/libs/cpp/stk/include/ADSR.h \
+    audiosource.h \
+    parameters.h
+
+OTHER_FILES += \
+    N:/libs/cpp/stk/include/SKINI.msg
