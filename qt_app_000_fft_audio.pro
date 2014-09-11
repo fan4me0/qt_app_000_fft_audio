@@ -42,7 +42,9 @@ DEPENDPATH  += $${QWT_PATH_INC}
 #------------------------------------------------------------
 # FFTW library settings
 # There is conflict(?) where the lib is installed when built from source code
-# and when installed via apt-get :
+# and when installed via apt-get. This was the issue when guilding some other
+# program - Ardour or some audio pulgins? Anyway, library installed from source
+# had to be uninstalled and used one provided via apt-get. Folders are :
 # source built :    /usr/local/lib/
 # apt-get install : /usr/lib/x86_64-linux-gnu/
 FFTW_BUILT_INSTALL_DIR_LIB = /usr/local/lib
